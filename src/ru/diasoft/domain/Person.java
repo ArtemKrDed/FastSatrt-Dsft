@@ -1,10 +1,10 @@
 package ru.diasoft.domain;
 
 public class Person {
-    String firstName;
-    String secondName;
-    int age;
-    String phone;
+   private String firstName;
+   private String secondName;
+   private int age;
+   private String phone;
 
     Person(String firstName, String secondName, int age) {
         this.firstName = firstName;

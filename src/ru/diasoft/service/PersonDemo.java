@@ -3,7 +3,7 @@ package ru.diasoft.service;
 import ru.diasoft.domain.Person;
 
 public class PersonDemo {
-    Person person;
+   private Person person;
 
     public PersonDemo(Person person) {
         this.person = person;
