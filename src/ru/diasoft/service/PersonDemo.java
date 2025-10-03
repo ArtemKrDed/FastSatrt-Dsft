@@ -1,8 +1,13 @@
 package ru.diasoft.service;
 
+import ru.diasoft.domain.Faculty;
 import ru.diasoft.domain.Person;
 import ru.diasoft.domain.Student;
+import ru.diasoft.repository.FacultyRepository;
 import ru.diasoft.service.exceptions.InvalidPhoneNumberException;
+
+import java.util.List;
+import java.util.Map;
 
 public class PersonDemo {
    private Person person;
@@ -55,5 +60,33 @@ public class PersonDemo {
             }
         }
     }
+
+    public static void demonstrateFacultyWork() {
+        System.out.println("\n Работа FacultyRepository: ");
+        FacultyRepository repository = new FacultyRepository();
+        Faculty faculty = repository.getFaculty();
+        System.out.println("Факультет: " + faculty.getName());
+        System.out.println("Количество студентов: " + faculty.getAllStudents().size());
+        System.out.println("\n Студенты и Дисциплины: ");
+        List<Student> students = faculty.getAllStudents();
+        Printer studentPrinter = new StudentPrinter();
+
+        for (Student student : students) {
+            studentPrinter.printInfo(student);
+        }
+        System.out.println("\n Сортировка: ");
+        if (!students.isEmpty()) {
+            Student firstStudent = students.get(0);
+            System.out.println("Дисциплины студента " + firstStudent.getFirstName() + " " +
+                    firstStudent.getSecondName() + ":");
+
+            List<Map.Entry<String, Integer>> subjects = firstStudent.getSubjects();
+            for (Map.Entry<String, Integer> subject : subjects) {
+                System.out.println("  - " + subject.getKey() + ": " + subject.getValue());
+            }
+        }
+    }
 }
+
+
 

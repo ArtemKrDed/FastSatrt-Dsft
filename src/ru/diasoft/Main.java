@@ -16,9 +16,19 @@ public class Main {
             Student student = new Student("Anton", "Ivanov", 20, "8-965-989-55-88", "ГРУППА-124", 2);
             PersonDemo studentDemo = new PersonDemo(student);
             System.out.println();
-            System.out.println("Демонстрация student:");
+            System.out.println("Демонстрация Студента:");
             studentDemo.demoStudent();
             studentDemo.demoPhoneValidation();
+            student.addSubject("Математика", 5);
+            student.addSubject("Машинострение", 4);
+            student.addSubject("Геометрия", 5);
+            student.addSubject("Сопромат", 3);
+
+            System.out.println();
+            System.out.println("Демонстрация Студентов с дисциплинами:");
+            studentDemo.demoStudent();
+            System.out.println();
+            PersonDemo.demonstrateFacultyWork();
 
         } catch (InvalidPhoneNumberException e) {
             System.out.println("Ошибка при добавление номера - " + e.getMessage());
