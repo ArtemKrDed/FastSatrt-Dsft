@@ -48,15 +48,19 @@ public class Student extends Person {
     public List<Map.Entry<String, Integer>> getSubjects() {
         return new ArrayList<>(subjects);
     }
-
+//  -----------------Использовал этот метод , до задания из модуля 11----------------
+//  Задание : Осуществить работу с компаратором в проекте модуля 9 при помощи лямбда-выражения!
+//    private void sortSubjects() {
+//        Collections.sort(subjects, new Comparator<Map.Entry<String, Integer>>() {
+//            @Override
+//            public int compare(Map.Entry<String, Integer> subject1, Map.Entry<String, Integer> subject2) {
+//                return subject2.getKey().compareTo(subject1.getKey());
+//            }
+//        });
+//    }
     private void sortSubjects() {
-        Collections.sort(subjects, new Comparator<Map.Entry<String, Integer>>() {
-            @Override
-            public int compare(Map.Entry<String, Integer> subject1, Map.Entry<String, Integer> subject2) {
-                return subject2.getKey().compareTo(subject1.getKey());
-            }
-        });
-    }
+        subjects.sort((subject1, subject2) -> subject2.getKey().compareTo(subject1.getKey()));
+}
 }
 
 
