@@ -23,6 +23,7 @@ public class Main {
             System.out.println("Демонстрация Студента:");
             studentDemo.demoStudent();
             studentDemo.demoPhoneValidation();
+            PersonDemo.demonstrateFacultyService();
 
             System.out.println("\n Работа сортировки метода sortSubject через лямбда-выражение: ");
             student.addSubject("Математика", 5);

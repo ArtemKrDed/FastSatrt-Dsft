@@ -86,7 +86,59 @@ public class PersonDemo {
             }
         }
     }
-}
+    public static void demonstrateFacultyService() {
+        System.out.println("\n Stream API");
+        FacultyService facultyService = new FacultyServiceReal();
+            Student student1 = new Student("Иван", "Глыбов", 20, "Имат-144", 1);
+            student1.addSubject("Информатика", 5);
+            student1.addSubject("Физика", 5);
+
+            Student student2 = new Student("Иван", "Васьков", 21, "Имат-178", 2);
+            student2.addSubject("Информатика", 4);
+            student2.addSubject("Физика", 5);
+
+            Student student3 = new Student("Олег", "Лосев", 22, "Имат-188", 1);
+            student3.addSubject("Информатика", 5);
+            student3.addSubject("Физика", 4);
+
+            Student student4 = new Student("Петр", "Сумкин", 22, "Имат-156", 1);
+            student3.addSubject("Информатика", 5);
+            student3.addSubject("Физика", 4);
+
+            Student student5 = new Student("Андрей", "Рожков", 22, "Имат-135", 1);
+            student3.addSubject("Информатика", 5);
+            student3.addSubject("Физика", 4);
+
+            Student student6 = new Student("Павел", "Листов", 22, "Имат-148", 1);
+            student3.addSubject("Информатика", 5);
+            student3.addSubject("Физика", 4);
+
+            facultyService.addStudent(student1);
+            facultyService.addStudent(student2);
+            facultyService.addStudent(student3);
+            facultyService.addStudent(student4);
+            facultyService.addStudent(student5);
+            facultyService.addStudent(student6);
+
+            System.out.println("1. Студенты с именем 'Иван':");
+            facultyService.findStudentName("Иван").forEach(s -> System.out.println("   " + s.getFirstName() + " " + s.getSecondName()));
+
+            System.out.println("\n2. Сортировка студентов по фамилии:");
+            facultyService.shortStudentSecondName().forEach(s -> System.out.println("   " + s.getSecondName() + " " + s.getFirstName()));
+
+            System.out.println("\n3. Отличники: ");
+            List<Student> bestStudents = facultyService.findStudentFiveScore();
+            if (bestStudents.isEmpty()) {
+                System.out.println("   Отличников нет");
+            } else {
+                bestStudents.forEach(s -> System.out.println("   " + s.getFirstName() + " " + s.getSecondName()));
+            }
+
+        }
+    }
+
+
+
 
 
 
