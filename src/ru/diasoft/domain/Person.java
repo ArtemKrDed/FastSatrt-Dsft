@@ -1,7 +1,10 @@
 package ru.diasoft.domain;
 
 import ru.diasoft.service.exceptions.InvalidPhoneNumberException;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
 public class Person {
    private String firstName;
    private String secondName;
@@ -21,26 +24,26 @@ public class Person {
         this.age = age;
         setPhone(phone);
     }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getSecondName() {
-        return secondName;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
+// Убираем так как теперь используем Lombook для генерации
+//    public String getFirstName() {
+//        return firstName;
+//    }
+//
+//    public String getSecondName() {
+//        return secondName;
+//    }
+//
+//    public int getAge() {
+//        return age;
+//    }
+//
+//    public String getPhone() {
+//        return phone;
+//    }
+//
+//    public void setAge(int age) {
+//        this.age = age;
+//    }
 
     public void setPhone(String phone) throws InvalidPhoneNumberException {
         if (phone != null && !phone.isEmpty()) {

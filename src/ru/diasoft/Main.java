@@ -31,7 +31,7 @@ public class Main {
             student.addSubject("Геометрия", 5);
             student.addSubject("Сопромат", 3);
             student.addSubject("Труд", 4);
-            student.addSubject("Английский", 5);
+            //student.addSubject("Английский", 5);
             student.addSubject("Рисование", 4);
             System.out.println("(\n Дисцплины отсортированы по убыванию От Я до А");
             for (Map.Entry<String, Integer> subject : student.getSubjects()) {
@@ -42,6 +42,11 @@ public class Main {
             System.out.println("Демонстрация Студентов с дисциплинами:");
             studentDemo.demoStudent();
             System.out.println();
+            System.out.println("Демонстрация Lombok");
+            Student lombokStudent = new Student("Елена", "Смирнова", 21, "ГРУППА-201", 3);
+            System.out.println("Группа: " + lombokStudent.getGroup()); // Геттер от Lombok
+            lombokStudent.setGroup("ГРУППА-202"); // Сеттер от Lombok
+            System.out.println("Новая группа: " + lombokStudent.getGroup());
             PersonDemo.demonstrateFacultyWork();
 
         } catch (InvalidPhoneNumberException e) {
